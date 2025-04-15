@@ -13412,12 +13412,12 @@
 	(symbol
 		(lib_id "DRV2605LDGSR:DRV2605LDGSR")
 		(at 120.65 156.21 0)
+		(mirror y)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "3b69acb8-7e63-4daf-b8d9-379ae7a26bc6")
 		(property "Reference" "U14"
 			(at 120.65 143.51 0)
@@ -13448,7 +13448,7 @@
 			)
 		)
 		(property "Datasheet" "https://item.szlcsc.com/202966.html"
-			(at 118.364 156.083 0)
+			(at 122.936 156.083 0)
 			(effects
 				(font
 					(size 1.27 1.27)
