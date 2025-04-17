@@ -290,210 +290,6 @@
 			)
 			(embedded_fonts no)
 		)
-		(symbol "Connector:Conn_01x03_Pin"
-			(pin_names
-				(offset 1.016)
-				(hide yes)
-			)
-			(exclude_from_sim no)
-			(in_bom yes)
-			(on_board yes)
-			(property "Reference" "J"
-				(at 0 5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Value" "Conn_01x03_Pin"
-				(at 0 -5.08 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "Footprint" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Datasheet" "~"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "Description" "Generic connector, single row, 01x03, script generated"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_locked" ""
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-				)
-			)
-			(property "ki_keywords" "connector"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(property "ki_fp_filters" "Connector*:*_1x??_*"
-				(at 0 0 0)
-				(effects
-					(font
-						(size 1.27 1.27)
-					)
-					(hide yes)
-				)
-			)
-			(symbol "Conn_01x03_Pin_1_1"
-				(rectangle
-					(start 0.8636 2.667)
-					(end 0 2.413)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 0.127)
-					(end 0 -0.127)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(rectangle
-					(start 0.8636 -2.413)
-					(end 0 -2.667)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type outline)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 2.54) (xy 0.8636 2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 0) (xy 0.8636 0)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(polyline
-					(pts
-						(xy 1.27 -2.54) (xy 0.8636 -2.54)
-					)
-					(stroke
-						(width 0.1524)
-						(type default)
-					)
-					(fill
-						(type none)
-					)
-				)
-				(pin passive line
-					(at 5.08 2.54 180)
-					(length 3.81)
-					(name "Pin_1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "1"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 0 180)
-					(length 3.81)
-					(name "Pin_2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "2"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-				(pin passive line
-					(at 5.08 -2.54 180)
-					(length 3.81)
-					(name "Pin_3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-					(number "3"
-						(effects
-							(font
-								(size 1.27 1.27)
-							)
-						)
-					)
-				)
-			)
-			(embedded_fonts no)
-		)
 		(symbol "Connector:Conn_01x04_Pin"
 			(pin_names
 				(offset 1.016)
@@ -6379,12 +6175,6 @@
 		(uuid "433da20a-a37b-403a-ad28-5889f8597b6f")
 	)
 	(junction
-		(at 69.85 19.05)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "44575668-64fb-479d-9739-180d9706f5bf")
-	)
-	(junction
 		(at 91.44 97.79)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6496,7 +6286,7 @@
 		(at 135.89 151.13)
 		(diameter 0)
 		(color 0 0 0 0)
-		(uuid "7e2b515a-b0af-4638-9854-91849ac83927")
+		(uuid "85d4a0aa-4068-48f8-b74b-ad4bb317b190")
 	)
 	(junction
 		(at 135.89 101.6)
@@ -6583,12 +6373,6 @@
 		(uuid "e8f7c9fe-002d-4805-8c16-67f333bff846")
 	)
 	(junction
-		(at 80.01 21.59)
-		(diameter 0)
-		(color 0 0 0 0)
-		(uuid "ef8660be-0c74-4ffd-85f4-4baed2e7538f")
-	)
-	(junction
 		(at 91.44 173.99)
 		(diameter 0)
 		(color 0 0 0 0)
@@ -6644,7 +6428,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 35.56) (xy 62.23 35.56)
+			(xy 60.96 35.56) (xy 64.77 35.56)
 		)
 		(stroke
 			(width 0)
@@ -6784,7 +6568,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 35.56) (xy 35.56 35.56)
+			(xy 21.59 35.56) (xy 35.56 35.56)
 		)
 		(stroke
 			(width 0)
@@ -6924,7 +6708,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 43.18) (xy 62.23 43.18)
+			(xy 60.96 43.18) (xy 64.77 43.18)
 		)
 		(stroke
 			(width 0)
@@ -7164,7 +6948,7 @@
 	)
 	(wire
 		(pts
-			(xy 69.85 19.05) (xy 71.12 19.05)
+			(xy 68.58 19.05) (xy 71.12 19.05)
 		)
 		(stroke
 			(width 0)
@@ -7454,7 +7238,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 30.48) (xy 62.23 30.48)
+			(xy 60.96 30.48) (xy 64.77 30.48)
 		)
 		(stroke
 			(width 0)
@@ -7484,7 +7268,7 @@
 	)
 	(wire
 		(pts
-			(xy 64.77 21.59) (xy 80.01 21.59)
+			(xy 64.77 21.59) (xy 81.28 21.59)
 		)
 		(stroke
 			(width 0)
@@ -7534,7 +7318,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 38.1) (xy 35.56 38.1)
+			(xy 21.59 38.1) (xy 35.56 38.1)
 		)
 		(stroke
 			(width 0)
@@ -7604,7 +7388,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 27.94) (xy 60.96 27.94)
+			(xy 64.77 27.94) (xy 60.96 27.94)
 		)
 		(stroke
 			(width 0)
@@ -7624,7 +7408,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 43.18) (xy 35.56 43.18)
+			(xy 21.59 43.18) (xy 35.56 43.18)
 		)
 		(stroke
 			(width 0)
@@ -7634,7 +7418,7 @@
 	)
 	(wire
 		(pts
-			(xy 62.23 33.02) (xy 60.96 33.02)
+			(xy 64.77 33.02) (xy 60.96 33.02)
 		)
 		(stroke
 			(width 0)
@@ -8014,7 +7798,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 40.64) (xy 62.23 40.64)
+			(xy 60.96 40.64) (xy 64.77 40.64)
 		)
 		(stroke
 			(width 0)
@@ -8384,7 +8168,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 38.1) (xy 62.23 38.1)
+			(xy 60.96 38.1) (xy 64.77 38.1)
 		)
 		(stroke
 			(width 0)
@@ -8484,7 +8268,7 @@
 	)
 	(wire
 		(pts
-			(xy 60.96 45.72) (xy 62.23 45.72)
+			(xy 60.96 45.72) (xy 64.77 45.72)
 		)
 		(stroke
 			(width 0)
@@ -8584,16 +8368,6 @@
 	)
 	(wire
 		(pts
-			(xy 68.58 19.05) (xy 69.85 19.05)
-		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "e1aa0bdf-7ea0-4ee4-9fcd-dfc0dd13123c")
-	)
-	(wire
-		(pts
 			(xy 257.81 17.78) (xy 264.16 17.78)
 		)
 		(stroke
@@ -8604,7 +8378,7 @@
 	)
 	(wire
 		(pts
-			(xy 33.02 40.64) (xy 35.56 40.64)
+			(xy 21.59 40.64) (xy 35.56 40.64)
 		)
 		(stroke
 			(width 0)
@@ -8782,15 +8556,15 @@
 		)
 		(uuid "fb4891eb-d081-4073-90d6-fbed39e244d1")
 	)
-	(wire
-		(pts
-			(xy 80.01 21.59) (xy 81.28 21.59)
+	(label "p42"
+		(at 251.46 149.86 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
 		)
-		(stroke
-			(width 0)
-			(type default)
-		)
-		(uuid "fc897d17-8640-46be-8a8e-1d3995edc5e5")
+		(uuid "02f5d232-ede8-4250-84f6-a37e37c938e5")
 	)
 	(label "GPIOEN"
 		(at 105.41 179.07 180)
@@ -8852,6 +8626,16 @@
 		)
 		(uuid "0f9def70-77d9-4e89-bcdd-dd4217536741")
 	)
+	(label "p3"
+		(at 220.98 127 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "1219477c-e5e7-4c3c-a537-e0887294e3bc")
+	)
 	(label "f1-sd2"
 		(at 29.21 80.01 0)
 		(effects
@@ -8912,6 +8696,16 @@
 		)
 		(uuid "315aa0a6-64bf-4670-a1f3-dfa0fd60db55")
 	)
+	(label "p45"
+		(at 251.46 152.4 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "31c8fe88-c118-49bc-9ffe-9b3f9a2443ca")
+	)
 	(label "GPIOEN"
 		(at 105.41 74.93 180)
 		(effects
@@ -8962,6 +8756,16 @@
 		)
 		(uuid "456c0d75-4983-413f-af7b-8d7d1935fe67")
 	)
+	(label "p46"
+		(at 276.86 148.59 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "4d2312a8-f3c1-420e-9f2f-7cd0ec9554f9")
+	)
 	(label "GPIOEN"
 		(at 105.41 95.25 180)
 		(effects
@@ -8991,6 +8795,16 @@
 			(justify right bottom)
 		)
 		(uuid "5475a6af-d549-4b2c-b5dd-a0dffe8412bd")
+	)
+	(label "p1"
+		(at 220.98 121.92 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "55b2923a-9e56-44d6-ad4e-c0f27daac8ca")
 	)
 	(label "f1-sc7"
 		(at 67.31 72.39 0)
@@ -9042,6 +8856,16 @@
 		)
 		(uuid "73a57635-a8ae-4407-981e-c747f6143a4d")
 	)
+	(label "p46"
+		(at 251.46 154.94 0)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify left bottom)
+		)
+		(uuid "75cc3487-b10c-424d-b8aa-cd0378f66bf7")
+	)
 	(label "EN_PIN"
 		(at 57.15 119.38 0)
 		(effects
@@ -9051,6 +8875,16 @@
 			(justify left bottom)
 		)
 		(uuid "75d3fd0c-3136-413e-9d5a-4696af828b0f")
+	)
+	(label "p42"
+		(at 276.86 153.67 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "773e12bc-4bb4-410f-80a2-578760dd38a3")
 	)
 	(label "f1-sd4"
 		(at 67.31 90.17 0)
@@ -9081,6 +8915,26 @@
 			(justify right bottom)
 		)
 		(uuid "83be819e-5427-4ec6-ae2d-6d8df06fe06b")
+	)
+	(label "p1"
+		(at 276.86 140.97 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "860ad1e4-c9e7-445f-9c62-e47d276f20db")
+	)
+	(label "p3"
+		(at 276.86 146.05 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "86ce4c06-031f-45a3-b3a9-5cbcdbc627e5")
 	)
 	(label "f1-sd5"
 		(at 67.31 85.09 0)
@@ -9161,6 +9015,16 @@
 			(justify right bottom)
 		)
 		(uuid "968262fe-f6d0-45f3-b810-93bcdd98eda2")
+	)
+	(label "p2"
+		(at 276.86 143.51 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "97a44c3a-edf4-4746-a5c7-a81ae98d0296")
 	)
 	(label "GPIOEN"
 		(at 218.44 144.78 180)
@@ -9361,6 +9225,26 @@
 			(justify left bottom)
 		)
 		(uuid "df26c2eb-1498-4c58-9891-6eb42af03178")
+	)
+	(label "p2"
+		(at 220.98 124.46 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e1e11ef1-a6eb-49ab-b120-b0179272cb8a")
+	)
+	(label "p45"
+		(at 276.86 151.13 180)
+		(effects
+			(font
+				(size 1.27 1.27)
+			)
+			(justify right bottom)
+		)
+		(uuid "e464331d-9087-42ed-a2b4-832a40a0c87e")
 	)
 	(label "GPIOEN"
 		(at 105.41 111.76 180)
@@ -9580,7 +9464,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 184.912 90)
 			(effects
 				(font
@@ -9978,7 +9862,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 88.392 127 90)
 			(effects
 				(font
@@ -10619,7 +10503,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 93.472 193.04 90)
 			(effects
 				(font
@@ -10909,7 +10793,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 93.472 38.1 90)
 			(effects
 				(font
@@ -11237,72 +11121,6 @@
 		)
 	)
 	(symbol
-		(lib_id "power:+3.3V")
-		(at 80.01 13.97 270)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "1cb44ddc-6d19-4778-be61-4ffc1af6ebab")
-		(property "Reference" "#PWR037"
-			(at 76.2 13.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 83.82 13.9701 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 80.01 13.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 80.01 13.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 80.01 13.97 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e0813202-a138-4c56-b8c9-990bf8f55915")
-		)
-		(instances
-			(project "eagleman-vest-rev1"
-				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
-					(reference "#PWR037")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "PCM_JLCPCB-Capacitors:0402,1uF")
 		(at 101.6 64.77 270)
 		(unit 1)
@@ -11329,7 +11147,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 62.992 90)
 			(effects
 				(font
@@ -11498,229 +11316,6 @@
 	)
 	(symbol
 		(lib_id "PCM_JLCPCB-Resistors:0402,4.7kΩ")
-		(at 80.01 17.78 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "21e057f7-688c-4313-a25b-9c2c0d39e820")
-		(property "Reference" "R6"
-			(at 82.55 17.7799 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "4.7kΩ"
-			(at 80.01 17.78 90)
-			(do_not_autoplace yes)
-			(effects
-				(font
-					(size 0.8 0.8)
-				)
-			)
-		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
-			(at 78.232 17.78 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF4701TCE_C25900.pdf"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/°C ±1% 4.7kΩ 0402 Chip Resistor - Surface Mount ROHS"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C25900"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Stock" "6136078"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" "0.004USD"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Process" "SMT"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Minimum Qty" "20"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Attrition Qty" "10"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Class" "Basic Component"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Category" "Resistors,Chip Resistor - Surface Mount"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "0402WGF4701TCE"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Resistance" "4.7kΩ"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Power(Watts)" "62.5mW"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Type" "Thick Film Resistors"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Overload Voltage (Max)" "50V"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Operating Temperature Range" "-55°C~+155°C"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Tolerance" "±1%"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Temperature Coefficient" "±100ppm/°C"
-			(at 80.01 17.78 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "549aaed8-8e6d-4f11-9d93-0a1055e2d4d1")
-		)
-		(pin "2"
-			(uuid "b811966a-5bce-4e19-8861-40dbfd2b9570")
-		)
-		(instances
-			(project "eagleman-vest-rev1"
-				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
-					(reference "R6")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "PCM_JLCPCB-Resistors:0402,4.7kΩ")
 		(at 95.25 91.44 0)
 		(unit 1)
 		(exclude_from_sim no)
@@ -11747,7 +11342,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 93.472 91.44 90)
 			(effects
 				(font
@@ -11968,7 +11563,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 167.132 90)
 			(effects
 				(font
@@ -12446,7 +12041,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 93.472 140.97 90)
 			(effects
 				(font
@@ -12642,77 +12237,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x03_Pin")
-		(at 215.9 124.46 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "2b4f9aea-55aa-412e-8b9d-91e19de48c08")
-		(property "Reference" "J13"
-			(at 216.535 116.84 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Value" "Conn_01x03_Pin"
-			(at 216.535 119.38 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 215.9 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 215.9 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated"
-			(at 215.9 124.46 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "e364d93d-20a2-4263-8073-69616f10a8c3")
-		)
-		(pin "2"
-			(uuid "01b809d8-df79-49df-985b-0cd82207e0b9")
-		)
-		(pin "3"
-			(uuid "7d10bbed-06d6-46e5-bb48-51beba7e8df6")
-		)
-		(instances
-			(project ""
-				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
-					(reference "J13")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "Connector:Screw_Terminal_01x02")
 		(at 147.32 88.9 0)
 		(unit 1)
@@ -12876,7 +12400,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 89.662 57.15 90)
 			(effects
 				(font
@@ -13410,111 +12934,6 @@
 		)
 	)
 	(symbol
-		(lib_id "DRV2605LDGSR:DRV2605LDGSR")
-		(at 120.65 156.21 0)
-		(mirror y)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "3b69acb8-7e63-4daf-b8d9-379ae7a26bc6")
-		(property "Reference" "U14"
-			(at 120.65 143.51 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "DRV2605LDGSR"
-			(at 120.65 146.05 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Footprint" "TCA9548APWR:driver_footprint_maybe"
-			(at 120.65 166.37 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-					(italic yes)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://item.szlcsc.com/202966.html"
-			(at 122.936 156.083 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-				(hide yes)
-			)
-		)
-		(property "Description" ""
-			(at 120.65 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C527464"
-			(at 120.65 156.21 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "5"
-			(uuid "0e81b628-59da-45fb-9401-b08fe62dcb11")
-		)
-		(pin "6"
-			(uuid "7c1be2e4-588e-45ab-8f58-86339b5224ab")
-		)
-		(pin "3"
-			(uuid "dfa6c3f7-badf-4aa9-9f27-01c276529696")
-		)
-		(pin "1"
-			(uuid "590c934e-0b86-4710-bca7-237cabb70acc")
-		)
-		(pin "4"
-			(uuid "827c5739-42fb-43b9-a49d-f0f2acdc7d0d")
-		)
-		(pin "8"
-			(uuid "2e9f5777-1537-4346-8a90-3ea36abe47c9")
-		)
-		(pin "2"
-			(uuid "fc8b7dbf-2a2b-4999-b8ef-2e278ad85d80")
-		)
-		(pin "9"
-			(uuid "7ccfb5d5-552c-4f3a-accd-17bfb7be50ba")
-		)
-		(pin "10"
-			(uuid "eaa9c09f-6901-4100-976d-7eed7a57aba2")
-		)
-		(pin "7"
-			(uuid "aa7903b3-7c01-45bc-86b0-8061b52defff")
-		)
-		(instances
-			(project "eagleman-vest-rev1"
-				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
-					(reference "U14")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5V")
 		(at 226.06 17.78 90)
 		(unit 1)
@@ -13609,7 +13028,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 89.662 177.8 90)
 			(effects
 				(font
@@ -14160,7 +13579,7 @@
 				)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
+		(property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_1x01_P1.27mm_Vertical"
 			(at 271.78 96.52 0)
 			(effects
 				(font
@@ -14226,7 +13645,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0805"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.89 52.832 90)
 			(effects
 				(font
@@ -14791,7 +14210,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 93.472 175.26 90)
 			(effects
 				(font
@@ -15345,7 +14764,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 99.822 90)
 			(effects
 				(font
@@ -15893,302 +15312,6 @@
 		)
 	)
 	(symbol
-		(lib_id "Connector:Conn_01x03_Pin")
-		(at 256.54 152.4 180)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5f8b8d7b-cf06-416d-b41e-c082d73434e3")
-		(property "Reference" "J12"
-			(at 257.81 151.1299 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Value" "Conn_01x03_Pin"
-			(at 257.81 153.6699 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify right)
-			)
-		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x03_P2.54mm_Vertical"
-			(at 256.54 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "~"
-			(at 256.54 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Generic connector, single row, 01x03, script generated"
-			(at 256.54 152.4 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "eab79beb-0348-409c-9ca9-fdcfdf3d3367")
-		)
-		(pin "2"
-			(uuid "d71d911e-0190-49c4-ab24-92b000dee197")
-		)
-		(pin "3"
-			(uuid "0709362e-1a19-463a-8d92-76736e26cea3")
-		)
-		(instances
-			(project ""
-				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
-					(reference "J12")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "PCM_JLCPCB-Resistors:0402,4.7kΩ")
-		(at 69.85 15.24 0)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(fields_autoplaced yes)
-		(uuid "5fceb915-e4dd-4a5e-8321-b570128d5ebf")
-		(property "Reference" "R4"
-			(at 72.39 15.2399 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Value" "4.7kΩ"
-			(at 69.85 15.24 90)
-			(do_not_autoplace yes)
-			(effects
-				(font
-					(size 0.8 0.8)
-				)
-			)
-		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
-			(at 68.072 15.24 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" "https://www.lcsc.com/datasheet/lcsc_datasheet_2206010045_UNI-ROYAL-Uniroyal-Elec-0402WGF4701TCE_C25900.pdf"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "62.5mW Thick Film Resistors 50V ±100ppm/°C ±1% 4.7kΩ 0402 Chip Resistor - Surface Mount ROHS"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "LCSC" "C25900"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Stock" "6136078"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Price" "0.004USD"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Process" "SMT"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Minimum Qty" "20"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Attrition Qty" "10"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Class" "Basic Component"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Category" "Resistors,Chip Resistor - Surface Mount"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Manufacturer" "UNI-ROYAL(Uniroyal Elec)"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Part" "0402WGF4701TCE"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Resistance" "4.7kΩ"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Power(Watts)" "62.5mW"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Type" "Thick Film Resistors"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Overload Voltage (Max)" "50V"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Operating Temperature Range" "-55°C~+155°C"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Tolerance" "±1%"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Temperature Coefficient" "±100ppm/°C"
-			(at 69.85 15.24 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "5089b032-c8e4-4ee1-8a06-bda0af685bc9")
-		)
-		(pin "2"
-			(uuid "9c91e43c-226f-461f-a9a1-f8db891b8a5b")
-		)
-		(instances
-			(project "eagleman-vest-rev1"
-				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
-					(reference "R4")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
 		(lib_id "power:+5V")
 		(at 85.09 59.69 0)
 		(unit 1)
@@ -16346,7 +15469,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 29.972 90)
 			(effects
 				(font
@@ -16605,7 +15728,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 29.972 90)
 			(effects
 				(font
@@ -17773,7 +16896,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 89.662 143.51 90)
 			(effects
 				(font
@@ -18607,6 +17730,110 @@
 		)
 	)
 	(symbol
+		(lib_id "DRV2605LDGSR:DRV2605LDGSR")
+		(at 120.65 156.21 0)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(uuid "7a4005b7-0e78-4def-afa6-3f549bbd8475")
+		(property "Reference" "U14"
+			(at 120.396 143.51 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "DRV2605LDGSR"
+			(at 120.65 146.05 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Footprint" "DRV2605:SOP50P490X110-10N"
+			(at 120.65 166.37 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+					(italic yes)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "https://item.szlcsc.com/202966.html"
+			(at 118.364 156.083 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify left)
+				(hide yes)
+			)
+		)
+		(property "Description" ""
+			(at 120.65 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "LCSC" "C527464"
+			(at 120.65 156.21 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "5"
+			(uuid "3d35e11e-a7dd-463e-a09a-919e907526a2")
+		)
+		(pin "6"
+			(uuid "9c5b657a-bb6c-4664-85ea-df42e3e63488")
+		)
+		(pin "3"
+			(uuid "d14ce2be-7bcb-4d1b-943b-d5b486f70ef3")
+		)
+		(pin "1"
+			(uuid "d74dee4a-b561-44ce-8a1f-7beece806fa6")
+		)
+		(pin "4"
+			(uuid "7f00e5cb-d66e-4416-b17e-3c80f1f50689")
+		)
+		(pin "8"
+			(uuid "7315ad99-cc7b-46f9-9afc-db514f8cfde5")
+		)
+		(pin "2"
+			(uuid "e86357b9-3d9c-4710-b2ca-d14b1581dde6")
+		)
+		(pin "9"
+			(uuid "2d1de164-0f0a-45ce-b260-0b8583029dbf")
+		)
+		(pin "10"
+			(uuid "d50d75ad-6a6b-4581-af11-0a939eb434c8")
+		)
+		(pin "7"
+			(uuid "3d065012-a92e-4e92-b5d4-48caf90ad09f")
+		)
+		(instances
+			(project "eagleman-vest-rev1"
+				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
+					(reference "U14")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 135.89 58.42 270)
 		(unit 1)
@@ -19011,7 +18238,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 93.472 157.48 90)
 			(effects
 				(font
@@ -19232,7 +18459,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 99.822 90)
 			(effects
 				(font
@@ -19428,7 +18655,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 92.202 124.46 90)
 			(effects
 				(font
@@ -19984,7 +19211,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 89.662 93.98 90)
 			(effects
 				(font
@@ -20180,6 +19407,88 @@
 		)
 	)
 	(symbol
+		(lib_id "Connector:Conn_01x06_Pin")
+		(at 281.94 148.59 180)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "89d9834d-2f47-4e29-b985-1b2d708ae0b8")
+		(property "Reference" "J19"
+			(at 283.21 146.0499 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Value" "Conn_01x06_Pin"
+			(at 283.21 148.5899 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x06_P2.54mm_Vertical"
+			(at 281.94 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" "~"
+			(at 281.94 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Generic connector, single row, 01x06, script generated"
+			(at 281.94 148.59 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "2"
+			(uuid "4511d9ef-be48-4614-8059-73bcff9fff1b")
+		)
+		(pin "1"
+			(uuid "721ca122-e338-4139-a3df-fb52733fc4da")
+		)
+		(pin "3"
+			(uuid "02c93bfe-1af0-41b5-8fa4-f20aed158b14")
+		)
+		(pin "6"
+			(uuid "b59dfb8d-78f0-4067-bdb0-05ecf0a17a67")
+		)
+		(pin "4"
+			(uuid "e6ffc3cd-0c94-4ffe-aae7-53186bb82bd2")
+		)
+		(pin "5"
+			(uuid "c56a68e6-4c3d-40ce-b7ae-7d31ac7f533e")
+		)
+		(instances
+			(project "eagleman-vest-rev1"
+				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
+					(reference "J19")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "PCM_JLCPCB-Resistors:0402,4.7kΩ")
 		(at 71.12 63.5 0)
 		(unit 1)
@@ -20207,7 +19516,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 69.342 63.5 90)
 			(effects
 				(font
@@ -20430,7 +19739,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 89.662 160.02 90)
 			(effects
 				(font
@@ -21434,7 +20743,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 88.392 110.49 90)
 			(effects
 				(font
@@ -21805,7 +21114,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 89.662 195.58 90)
 			(effects
 				(font
@@ -22532,7 +21841,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 184.912 90)
 			(effects
 				(font
@@ -22728,7 +22037,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 52.832 115.57 90)
 			(effects
 				(font
@@ -23017,7 +22326,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 116.332 90)
 			(effects
 				(font
@@ -23768,7 +23077,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 132.842 90)
 			(effects
 				(font
@@ -23962,7 +23271,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 46.482 90)
 			(effects
 				(font
@@ -24865,7 +24174,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 89.662 40.64 90)
 			(effects
 				(font
@@ -25224,7 +24533,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 93.472 54.61 90)
 			(effects
 				(font
@@ -25447,7 +24756,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 89.662 73.66 90)
 			(effects
 				(font
@@ -25738,7 +25047,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 149.352 90)
 			(effects
 				(font
@@ -26199,7 +25508,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 83.312 90)
 			(effects
 				(font
@@ -26394,7 +25703,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0805"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 262.89 59.182 90)
 			(effects
 				(font
@@ -26684,7 +25993,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 69.342 53.34 90)
 			(effects
 				(font
@@ -27017,72 +26326,6 @@
 			(project "eagleman-vest-rev1"
 				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
 					(reference "D31")
-					(unit 1)
-				)
-			)
-		)
-	)
-	(symbol
-		(lib_id "power:+3.3V")
-		(at 69.85 11.43 90)
-		(unit 1)
-		(exclude_from_sim no)
-		(in_bom yes)
-		(on_board yes)
-		(dnp no)
-		(uuid "cc4124e4-eaaf-4fc6-ab7c-e63d886b683e")
-		(property "Reference" "#PWR038"
-			(at 73.66 11.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Value" "+3.3V"
-			(at 66.04 11.4299 90)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(justify left)
-			)
-		)
-		(property "Footprint" ""
-			(at 69.85 11.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Datasheet" ""
-			(at 69.85 11.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(property "Description" "Power symbol creates a global label with name \"+3.3V\""
-			(at 69.85 11.43 0)
-			(effects
-				(font
-					(size 1.27 1.27)
-				)
-				(hide yes)
-			)
-		)
-		(pin "1"
-			(uuid "64984d6d-382c-4409-be51-1601c5e70430")
-		)
-		(instances
-			(project "eagleman-vest-rev1"
-				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
-					(reference "#PWR038")
 					(unit 1)
 				)
 			)
@@ -27683,7 +26926,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 83.312 90)
 			(effects
 				(font
@@ -27943,7 +27186,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 101.6 132.842 90)
 			(effects
 				(font
@@ -28113,16 +27356,15 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x08_Pin")
-		(at 67.31 38.1 180)
+		(at 69.85 38.1 180)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
 		(on_board yes)
 		(dnp no)
-		(fields_autoplaced yes)
 		(uuid "dd1d8e64-6ba9-4b55-8b02-21c57b84653f")
 		(property "Reference" "J17"
-			(at 68.58 35.5599 0)
+			(at 71.374 36.322 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28131,7 +27373,7 @@
 			)
 		)
 		(property "Value" "Conn_01x08_Pin"
-			(at 68.58 38.0999 0)
+			(at 71.12 43.18 90)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28139,8 +27381,8 @@
 				(justify right)
 			)
 		)
-		(property "Footprint" "Connector_PinHeader_2.54mm:PinHeader_1x08_P2.54mm_Vertical"
-			(at 67.31 38.1 0)
+		(property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_1x08_P1.27mm_Vertical"
+			(at 69.85 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28149,7 +27391,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 67.31 38.1 0)
+			(at 69.85 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28158,7 +27400,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x08, script generated"
-			(at 67.31 38.1 0)
+			(at 69.85 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -28360,7 +27602,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 92.202 107.95 90)
 			(effects
 				(font
@@ -28581,7 +27823,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 149.352 90)
 			(effects
 				(font
@@ -29057,7 +28299,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:R_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 93.472 71.12 90)
 			(effects
 				(font
@@ -29411,7 +28653,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 46.482 90)
 			(effects
 				(font
@@ -29682,7 +28924,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 167.132 90)
 			(effects
 				(font
@@ -29985,6 +29227,73 @@
 		)
 	)
 	(symbol
+		(lib_id "power:GND")
+		(at 105.41 176.53 270)
+		(unit 1)
+		(exclude_from_sim no)
+		(in_bom yes)
+		(on_board yes)
+		(dnp no)
+		(fields_autoplaced yes)
+		(uuid "ee3c6be5-10dc-4c13-9db6-4d15edae832d")
+		(property "Reference" "#PWR0101"
+			(at 99.06 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Value" "GND"
+			(at 101.6 176.5299 90)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(justify right)
+			)
+		)
+		(property "Footprint" ""
+			(at 105.41 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Datasheet" ""
+			(at 105.41 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(property "Description" "Power symbol creates a global label with name \"GND\" , ground"
+			(at 105.41 176.53 0)
+			(effects
+				(font
+					(size 1.27 1.27)
+				)
+				(hide yes)
+			)
+		)
+		(pin "1"
+			(uuid "fa82ef6b-3ea4-427f-8360-4a3a410fcd72")
+		)
+		(instances
+			(project "eagleman-vest-rev1"
+				(path "/8d70b786-4ef4-43d4-b892-2cbd7ff0947a"
+					(reference "#PWR0101")
+					(unit 1)
+				)
+			)
+		)
+	)
+	(symbol
 		(lib_id "power:+3.3V")
 		(at 135.89 144.78 270)
 		(unit 1)
@@ -30277,7 +29586,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 116.332 90)
 			(effects
 				(font
@@ -30840,7 +30149,7 @@
 				)
 			)
 		)
-		(property "Footprint" "PCM_JLCPCB:C_0402"
+		(property "Footprint" "Capacitor_SMD:C_0603_1608Metric"
 			(at 139.7 62.992 90)
 			(effects
 				(font
@@ -31144,7 +30453,7 @@
 	)
 	(symbol
 		(lib_id "Connector:Conn_01x04_Pin")
-		(at 27.94 38.1 0)
+		(at 16.51 38.1 0)
 		(unit 1)
 		(exclude_from_sim no)
 		(in_bom yes)
@@ -31153,7 +30462,7 @@
 		(fields_autoplaced yes)
 		(uuid "fcb7d0a8-011b-49b2-833d-508939de7f8c")
 		(property "Reference" "J18"
-			(at 28.575 30.48 0)
+			(at 17.145 30.48 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31161,15 +30470,15 @@
 			)
 		)
 		(property "Value" "Conn_01x04_Pin"
-			(at 28.575 33.02 0)
+			(at 17.145 33.02 0)
 			(effects
 				(font
 					(size 1.27 1.27)
 				)
 			)
 		)
-		(property "Footprint" ""
-			(at 27.94 38.1 0)
+		(property "Footprint" "Connector_PinHeader_1.27mm:PinHeader_1x04_P1.27mm_Vertical"
+			(at 16.51 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31178,7 +30487,7 @@
 			)
 		)
 		(property "Datasheet" "~"
-			(at 27.94 38.1 0)
+			(at 16.51 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
@@ -31187,7 +30496,7 @@
 			)
 		)
 		(property "Description" "Generic connector, single row, 01x04, script generated"
-			(at 27.94 38.1 0)
+			(at 16.51 38.1 0)
 			(effects
 				(font
 					(size 1.27 1.27)
