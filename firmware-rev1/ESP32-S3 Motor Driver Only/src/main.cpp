@@ -13,6 +13,46 @@ int effect = 0;
 
 Adafruit_DRV2605 drv;
 
+int pins[10] = {4, 5, 16, 15, 7, 6, 11, 12, 13, 14};
+bool statLEDS[10];
+void setLEDs(bool ledState[10]) {
+  for(int i = 0; i < 10; i++) {
+    digitalWrite(pins[i], ledState[i]);
+  }
+}
+void ledTwinkle() {
+  for(int i = 0; i < 10; i++) {
+    if(i % 2 == 0) {
+      statLEDS[i] = 0;
+    } else {
+      statLEDS[i] = 1;
+    }
+  }
+  setLEDs(statLEDS);
+  delay(100);
+  for(int i = 0; i < 10; i++) {
+    if(i % 2 == 0) {
+      statLEDS[i] = 1;
+    } else {
+      statLEDS[i] = 0;
+    }
+  }
+  setLEDs(statLEDS);
+  delay(100); 
+}
+void ledSwipe(int del) {
+  for(int i = 0; i < 10; i++) {
+    statLEDS[i] = 1;
+    setLEDs(statLEDS);
+    delay(del);
+  }
+  for(int i = 0; i < 10; i++) {
+    statLEDS[i] = 0;
+    setLEDs(statLEDS);
+    delay(del);
+  }
+}
+
 void setup() {
   // put your setup code here, to run once:
   FastLED.addLeds<WS2812B, 38, GRB>(leds, NUM_LEDS);
@@ -37,7 +77,8 @@ void setup() {
       leds[0] = CRGB::Green;
       FastLED.show();
       delay(250);
-      
+      leds[0] = CRGB::Green;
+      FastLED.show();
       delay(250);
     }
   }
