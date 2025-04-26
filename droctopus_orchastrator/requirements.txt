@@ -1,0 +1,4 @@
+reflex>=0.3.6
+bleak>=0.21.1
+asyncio>=3.4.3
+
