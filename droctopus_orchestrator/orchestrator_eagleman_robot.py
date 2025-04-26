@@ -45,7 +45,7 @@ async def send_robot_commands():
                 "shoulder": shoulder_angle,
                 "elbow": elbow_angle,
                 "hand": hand_angle,
-                "spd": 0,
+                "spd": 10,
                 "acc": 10
             }
 
@@ -80,7 +80,7 @@ async def keyboard_control():
 
     while True:
         key = await asyncio.to_thread(getch)
-        step = 0.1  # radians
+        step = 0.3  # radians
 
         if key.lower() == 'w':
             shoulder_angle = min(shoulder_angle + step, MAX_ANGLE)
