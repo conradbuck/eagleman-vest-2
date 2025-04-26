@@ -1,17 +1,21 @@
 #include <Wire.h>
 #include <Adafruit_DRV2605.h>
 #include <Arduino.h>
+#include <BLEDevice.h>
+#include <BLEServer.h>
+#include <BLEUtils.h>
+
 
 #define TCAADDR_UPPER 0x70
 #define TCAADDR_LOWER 0x74
 #define TCA_UPP_RST 47
 #define TCA_LOW_RST 48
 #define DRVADDR 0x5A
-
 #define SDA_PIN 8
 #define SCL_PIN 9
-
 #define DRV_EN 10
+
+
 
 
 
@@ -172,9 +176,69 @@ bool setAllMotors(const std::array<uint8_t,10>& setting_packet) {
 
 
 
+/*
+BLE Variables and Class Code Start 
+*/
+BLEServer* pServer = nullptr;
+#define SERVICE_UUID        "87654321-4321-4321-4321-0987654321ba"
+#define CHARACTERISTIC_UUID "fedcbafe-4321-8765-4321-fedcbafedcba"
+#define CHUNK_SIZE 10
+
+// std::array<uint8_t, CHUNK_SIZE> rxBuffer;
+// uint8_t bufferIndex = 0;
+
+class MyCallbacks: public BLECharacteristicCallbacks {
+
+    enum State { WAIT_HEADER, COLLECT_DATA }; // TODO make sure python script handles the wait header state
+    State rxState = WAIT_HEADER;
+    std::array<uint8_t, CHUNK_SIZE> rxBuffer;
+    uint8_t bufferIndex = 0;
+
+    void onByteReceived(uint8_t byte) {  // maybe need to use second implementation
+      if (rxState == WAIT_HEADER) {
+        if (byte == 0xAA) {
+          rxState = COLLECT_DATA;
+          bufferIndex = 0;
+        }
+      } else if (rxState == COLLECT_DATA) {
+        rxBuffer[bufferIndex++] = byte;
+        if (bufferIndex == CHUNK_SIZE) {
+          setAllMotors(rxBuffer);
+          rxState = WAIT_HEADER;
+        }
+      }
+    }
+
+
+    void onWrite(BLECharacteristic *pCharacteristic) {
+      std::string value = pCharacteristic->getValue();
+
+      Serial.print("Raw received bytes ("); // debug
+      Serial.print(value.length());// debug
+      Serial.println(" bytes):");// debug
+
+      for (size_t i = 0; i < value.length(); i++) {
+        uint8_t byte = (uint8_t)value[i];
+        Serial.print(byte); // debug
+        Serial.print(" ");  // debug
+        
+        rxBuffer[bufferIndex++] = (uint8_t)value[i];
+
+        onByteReceived(byte);
+      }
+      Serial.println();
+    }
+};
+/*
+BLE Variables and Class Code End
+*/
+
+
+
 
 
 void setup() {
+
   Wire.begin(SDA_PIN, SCL_PIN); // setup for I2C
   pinMode(DRV_EN, OUTPUT);
   pinMode(TCA_UPP_RST, OUTPUT);
@@ -196,6 +260,34 @@ void setup() {
       while (1); // Halt on error  // TODO: make this an actual error 
     } else { /* ledSwipe(23); */}
   }
+
+
+  /*
+  BLE Setup Start
+  */
+  Serial.begin(115200);
+  BLEDevice::init("ESP32_Receiver");
+  pServer = BLEDevice::createServer();
+
+  BLEService *pService = pServer->createService(SERVICE_UUID);
+
+  BLECharacteristic *pCharacteristic = pService->createCharacteristic(
+                                         CHARACTERISTIC_UUID,
+                                         BLECharacteristic::PROPERTY_WRITE
+                                       );
+
+  pCharacteristic->setCallbacks(new MyCallbacks());
+
+  pService->start();
+
+  BLEAdvertising *pAdvertising = BLEDevice::getAdvertising();
+  pAdvertising->addServiceUUID(SERVICE_UUID);
+  pAdvertising->start();
+
+  /*
+  BLE Setup End
+  */
+
 
   std::array<uint8_t, 10> packet = {0x00, 0x80, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00};
 
