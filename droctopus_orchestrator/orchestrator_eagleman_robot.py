@@ -112,6 +112,33 @@ async def keyboard_control():
 
         await asyncio.sleep(0.05)
 
+async def send_continuous_commands(client2):
+    global base_angle, shoulder_angle, elbow_angle, hand_angle
+
+    while True:
+        def map_angle_to_byte(angle):
+            value = int(255 * (angle - MIN_ANGLE) / (MAX_ANGLE - MIN_ANGLE))
+            return 254 if value == 0xAA else value
+
+        bytes_to_send = [
+            map_angle_to_byte(-base_angle),
+            map_angle_to_byte(base_angle),
+            map_angle_to_byte(-shoulder_angle),
+            map_angle_to_byte(shoulder_angle),
+            map_angle_to_byte(-elbow_angle),
+            map_angle_to_byte(elbow_angle),
+            map_angle_to_byte(-hand_angle),
+            map_angle_to_byte(hand_angle),
+            0,
+            0
+        ]
+
+        framed_data = bytes([0xAA] + bytes_to_send)
+        await client2.write_gatt_char(CHARACTERISTIC_UUID_2, framed_data)
+        print(f"Continuously sent: {[hex(b) for b in framed_data]}")
+
+        await asyncio.sleep(0.1)
+
 async def send_user_commands():
     print("Scanning for ESP32_Receiver...")
 
@@ -140,33 +167,11 @@ async def send_user_commands():
         # Start keyboard control loop
         asyncio.create_task(keyboard_control())
 
+        # Start continuous BLE command loop
+        asyncio.create_task(send_continuous_commands(client2))
+
         while True:
-            try:
-                user_input = input("Enter 10 integers (0-255) separated by spaces: ")
-                numbers = user_input.strip().split()
-
-                if len(numbers) != 10:
-                    print("Error: You must enter exactly 10 integers.")
-                    continue
-
-                try:
-                    byte_values = [int(x) for x in numbers]
-                except ValueError:
-                    print("Error: Please enter only valid integers.")
-                    continue
-
-                if any(not (0 <= b <= 255) for b in byte_values):
-                    print("Error: Integers must be between 0 and 255.")
-                    continue
-
-                framed_data = bytes([0xAA] + byte_values)
-
-                await client2.write_gatt_char(CHARACTERISTIC_UUID_2, framed_data)
-                print(f"Sent to ESP32: {[hex(b) for b in framed_data]}")
-
-            except KeyboardInterrupt:
-                print("\nExiting...")
-                break
+            await asyncio.sleep(1)
 
 async def main():
     global ser
