@@ -3,6 +3,28 @@ from bleak import BleakClient, BleakScanner
 import serial
 import argparse
 import json
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Global figure and axes creation (one-time setup)
+fig = plt.figure(figsize=(14, 7))
+gs = fig.add_gridspec(2, 4, height_ratios=[2, 1])  # Create 4 columns for joint angle gauges
+ax_row1 = [fig.add_subplot(gs[0, i], projection='polar') for i in range(4)]  # 4 subplots in the first row
+ax_haptics = fig.add_subplot(gs[1, :])  # Single subplot for haptic motor feedback (spans all columns)
+
+# Turn on interactive mode
+plt.ion()
+
+# Set up the plot only once
+ax_haptics.set_xlim(0, 10)
+ax_haptics.set_ylim(0, 1)
+ax_haptics.axis('off')
+ax_haptics.set_title("Haptic Motor Feedback", fontsize=14)
+
+# Define the colors and other settings you may want to use
+COLORS = ["#39fc03", "#41b581", "#41fae4", "#f7adff", "#2877d1", "#e8204c", "#ffb703", "#e2edad", "#3c3c91", "#9c0b47"]
+BACKGROUND = "#ffeccf"
+
 
 # UUIDs
 SERVICE_UUID_2 = "87654321-4321-4321-4321-0987654321ba"
@@ -28,6 +50,52 @@ prev_hand = None
 
 MIN_ANGLE = -3.14
 MAX_ANGLE = 3.14
+# Visualization function
+def draw_combined_visual(joint_angles_rad, motor_values):
+    """
+    Draws 4 joint angle radian gauges and 10 haptic motor feedback circles.
+    
+    Args:
+        joint_angles_rad (list of float): 4 values in radians (-π to π)
+        motor_values (list of int): 10 values between 1–255.
+    """
+    if len(joint_angles_rad) != 4:
+        raise ValueError("Please provide 4 joint angles (radians).")
+    if len(motor_values) != 10:
+        raise ValueError("Please provide 10 haptic motor values (1–255).")
+
+    # --- Update the 4 Joint Angle Gauges ---
+    for i, (ax, angle) in enumerate(zip(ax_row1, joint_angles_rad)):
+        ax.clear()
+        ax.set_theta_zero_location('N')
+        ax.set_theta_direction(-1)
+        ax.set_rticks([])
+        ax.set_xticks(np.linspace(-np.pi, np.pi, 5))
+        ax.set_xticklabels([r"$-\pi$", r"$-\frac{\pi}{2}$", "0", r"$\frac{\pi}{2}$", r"$\pi$"])
+
+        # Background arc
+        ax.bar(np.linspace(-np.pi, np.pi, 100), [1]*100, width=0.06, color='#eee', alpha=0.3)
+        # Current angle
+        ax.bar([angle], [1], width=0.15, color='C0')
+        ax.set_title(f"Joint {i+1}\n{angle:.2f} rad", va='bottom')
+
+    # --- Update the 10 Haptic Motor Circles ---
+    ax_haptics.clear()  # Clear the existing motor circle plot
+    ax_haptics.set_xlim(0, 10)
+    ax_haptics.set_ylim(0, 1)
+    ax_haptics.axis('off')
+    ax_haptics.set_title("Haptic Motor Feedback", fontsize=14)
+
+    for i, (val, color) in enumerate(zip(motor_values, COLORS)):
+        radius = 0.1 + (val / 255.0) * 0.3
+        circle = plt.Circle((i + 0.5, 0.5), radius, color=color)
+        ax_haptics.add_patch(circle)
+        ax_haptics.text(i + 0.5, 0.05, f"{val}", ha='center', va='center', fontsize=9)
+
+    # Redraw the plot and pause for a brief moment to allow for updates
+    plt.draw()  
+    plt.pause(0.001)  # Short pause to allow updates without blocking
+
 
 async def send_robot_commands():
     global base_angle, shoulder_angle, elbow_angle, hand_angle
@@ -132,7 +200,7 @@ async def send_continuous_commands(client2):
             0,
             0
         ]
-
+        draw_combined_visual([base_angle, shoulder_angle, elbow_angle, hand_angle], bytes_to_send)
         framed_data = bytes([0xAA] + bytes_to_send)
         await client2.write_gatt_char(CHARACTERISTIC_UUID_2, framed_data)
         print(f"Continuously sent: {[hex(b) for b in framed_data]}")
