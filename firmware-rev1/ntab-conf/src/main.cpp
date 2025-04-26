@@ -238,6 +238,9 @@ BLE Variables and Class Code End
 
 
 void setup() {
+  Serial.begin(115200);
+  delay(2000);
+  Serial.println("Hello World");
 
   Wire.begin(SDA_PIN, SCL_PIN); // setup for I2C
   pinMode(DRV_EN, OUTPUT);
@@ -265,7 +268,9 @@ void setup() {
   /*
   BLE Setup Start
   */
-  Serial.begin(115200);
+  
+  // Serial.println("Hello World");
+
   BLEDevice::init("ESP32_Receiver");
   pServer = BLEDevice::createServer();
 
@@ -328,5 +333,5 @@ void setup() {
 };
 
 void loop() {
-  ledSwipe(76);
+  // ledSwipe(76);
 };
