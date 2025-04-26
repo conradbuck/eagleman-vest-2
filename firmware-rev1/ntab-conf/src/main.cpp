@@ -14,9 +14,6 @@
 #define DRV_EN 10
 
 
-static constexpr std::array<uint8_t, 10> driver_mux_addr = {4, 5, 6, 7, 1, 0, 0, 1, 2, 3};
-static constexpr std::array<uint8_t, 10> driver_mux_sel = {1, 1, 1, 1, 0, 0, 1, 1, 1, 1};
-
 
 /*
     LED funcions
@@ -113,10 +110,10 @@ private:
 
     void selectChannel(uint8_t i) { //select the mux output channel [0,7]
       if (i > 7) return;
-      Wire.beginTransmission(i2c_mux_address);
+      Wire.beginTransmission(i2c_mux_address); // i2c_mux_address is taken from the private variables
       Wire.write(1 << i);
       Wire.endTransmission(); 
-      delay(10); 
+      // delay(10); 
     }
 
 public:
@@ -138,6 +135,10 @@ public:
     }
 };
 
+
+
+static constexpr std::array<uint8_t, 10> driver_mux_addr = {4, 5, 6, 7, 1, 0, 0, 1, 2, 3};
+static constexpr std::array<uint8_t, 10> driver_mux_sel = {TCAADDR_UPPER, TCAADDR_UPPER, TCAADDR_UPPER, TCAADDR_UPPER, TCAADDR_LOWER, TCAADDR_LOWER, TCAADDR_UPPER, TCAADDR_UPPER, TCAADDR_UPPER, TCAADDR_UPPER};
 HapticMotorDriver* motors[10];
 
 bool spinMotor(int index, uint8_t intensity) {
@@ -158,6 +159,21 @@ bool spinMotor(int index, uint8_t intensity) {
   setLEDs(statLEDS);
   return true;
 }
+
+bool setAllMotors(const std::array<uint8_t,10>& setting_packet) {
+  for (int i=0; i<10; i++) {
+    if(!spinMotor(i, setting_packet[i])) {
+      return false;
+    } else {}
+  }
+  return true;
+
+}
+
+
+
+
+
 void setup() {
   Wire.begin(SDA_PIN, SCL_PIN); // setup for I2C
   pinMode(DRV_EN, OUTPUT);
@@ -172,87 +188,51 @@ void setup() {
   resetUmux(); // resetting TCA9548A
   resetLmux(); // resetting TCA9548A
 
-
-
-
-  // test function to cycle through all available 
+  // initialize the drivers  
   for(int i = 0; i < 10; i++) {
-    uint8_t mux;
-    uint8_t channel;
-    // uint8_t mux = (i < 8) ? TCAADDR_UPPER : TCAADDR_LOWER;
-    //uint8_t channel = (i < 8) ? i : i - 8;
-    // driver_mux_sel = {1, 1, 1, 1, 0, 0, 1, 1, 1, 1};
-    // driver_mux_addr = {4, 5, 6, 7, 1, 0, 0, 1, 2, 3};
-    if(i == 4 || i == 5) {
-      mux = TCAADDR_LOWER;
-      switch(i) {
-        case 4:
-          channel = 1;
-          break;
-        case 5:
-          channel = 0;
-          break;
-      }
-    } else {
-      mux = TCAADDR_UPPER;
-      switch(i) {
-        case 0:
-          channel = 4;
-          break;
-        case 1:
-          channel = 5;
-          break;
-        case 2:
-          channel = 6;
-          break;
-        case 3:
-          channel = 7;
-          break;
-        case 6:
-          channel = 0;
-          break;
-        case 7:
-          channel = 1;
-          break;
-        case 8:
-          channel = 2;
-          break;
-        case 9:
-          channel = 3;
-          break;
-      }
-    }
-    motors[i] = new HapticMotorDriver(mux, channel);
+    motors[i] = new HapticMotorDriver( driver_mux_sel[i], driver_mux_addr[i]);
     if (!motors[i]->begin()) {
       errorFlash(i); // Visual indication for which one failed
-      while (1); // Halt on error
-    } else {
-      //ledSwipe(23);
-    }
+      while (1); // Halt on error  // TODO: make this an actual error 
+    } else { /* ledSwipe(23); */}
   }
 
+  std::array<uint8_t, 10> packet = {0x00, 0x80, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x00, 0x00};
+
+  bool val = setAllMotors(packet);
+  delay(1000);
+  packet = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+  val = setAllMotors(packet);
+  delay(1000);
+  packet = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x80, 0x00, 0x00, 0x80};
+  val = setAllMotors(packet);
+  delay(1000);
+  packet = {0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00, 0x00};
+  val = setAllMotors(packet);
+  delay(1000);
 
 
-  spinMotor(1, 128); //spin motor 0 and 128/255 intensity
-  delay(1000);
-  spinMotor(1, 0);
-  delay(200);
-  spinMotor(9, 128); //spin motor 0 and 128/255 intensity
-  delay(1000);
-  spinMotor(9, 0);
-  delay(200);
-  spinMotor(6, 128); //spin motor 0 and 128/255 intensity
-  delay(1000);
-  spinMotor(6, 0);
-  delay(200);
-  spinMotor(5, 128); //spin motor 0 and 128/255 intensity
-  delay(1000);
-  spinMotor(5, 0);
-  delay(200);
-  spinMotor(6, 128); //spin motor 0 and 128/255 intensity
-  delay(1000);
-  spinMotor(6, 0);
-  delay(200);
+
+  // spinMotor(1, 128); //spin motor 0 and 128/255 intensity
+  // delay(1000);
+  // spinMotor(1, 0);
+  // delay(200);
+  // spinMotor(9, 128); //spin motor 0 and 128/255 intensity
+  // delay(1000);
+  // spinMotor(9, 0);
+  // delay(200);
+  // spinMotor(6, 128); //spin motor 0 and 128/255 intensity
+  // delay(1000);
+  // spinMotor(6, 0);
+  // delay(200);
+  // spinMotor(5, 128); //spin motor 0 and 128/255 intensity
+  // delay(1000);
+  // spinMotor(5, 0);
+  // delay(200);
+  // spinMotor(6, 128); //spin motor 0 and 128/255 intensity
+  // delay(1000);
+  // spinMotor(6, 0);
+  // delay(200);
 };
 
 void loop() {
