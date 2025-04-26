@@ -1,0 +1,128 @@
+import asyncio
+from bleak import BleakClient, BleakScanner
+import serial
+import argparse
+import json
+
+# /dev/tty.usbserial-120 
+
+# UUIDs
+SERVICE_UUID_2 = "87654321-4321-4321-4321-0987654321ba"
+CHARACTERISTIC_UUID_2 = "fedcbafe-4321-8765-4321-fedcbafedcba"
+
+# ESP32 advertised name
+DEVICE_NAME_2 = "ESP32_Receiver"
+
+# Global serial object
+ser = None
+
+# Global angles
+base_angle = 0.0
+shoulder_angle = 0.0
+elbow_angle = 1.57
+hand_angle = 3.14
+
+# For detecting changes
+prev_base = None
+prev_shoulder = None
+prev_elbow = None
+prev_hand = None
+
+async def send_robot_commands():
+    global base_angle, shoulder_angle, elbow_angle, hand_angle
+    global prev_base, prev_shoulder, prev_elbow, prev_hand
+
+    while True:
+        if (base_angle != prev_base or
+            shoulder_angle != prev_shoulder or
+            elbow_angle != prev_elbow or
+            hand_angle != prev_hand):
+
+            command = {
+                "T": 102,
+                "base": base_angle,
+                "shoulder": shoulder_angle,
+                "elbow": elbow_angle,
+                "hand": hand_angle,
+                "spd": 0,
+                "acc": 10
+            }
+
+            ser.write((json.dumps(command) + "\n").encode())
+            print(f"Sent robot command: {command}")
+
+            prev_base = base_angle
+            prev_shoulder = shoulder_angle
+            prev_elbow = elbow_angle
+            prev_hand = hand_angle
+
+        await asyncio.sleep(0.1)
+
+async def send_user_commands():
+    print("Scanning for ESP32_Receiver...")
+
+    devices = await BleakScanner.discover()
+    address2 = None
+
+    for d in devices:
+        if d.name == DEVICE_NAME_2:
+            address2 = d.address
+
+    if not address2:
+        print("Could not find ESP32_Receiver!")
+        return
+
+    print(f"Found ESP32_Receiver at {address2}")
+
+    client2 = BleakClient(address2)
+
+    async with client2:
+        await client2.connect()
+        print("Connected to ESP32_Receiver!")
+
+        # Start robot serial command loop
+        asyncio.create_task(send_robot_commands())
+
+        while True:
+            try:
+                user_input = input("Enter 10 integers (0-255) separated by spaces: ")
+                numbers = user_input.strip().split()
+
+                if len(numbers) != 10:
+                    print("Error: You must enter exactly 10 integers.")
+                    continue
+
+                try:
+                    byte_values = [int(x) for x in numbers]
+                except ValueError:
+                    print("Error: Please enter only valid integers.")
+                    continue
+
+                if any(not (0 <= b <= 255) for b in byte_values):
+                    print("Error: Integers must be between 0 and 255.")
+                    continue
+
+                framed_data = bytes([0xAA] + byte_values)
+
+                await client2.write_gatt_char(CHARACTERISTIC_UUID_2, framed_data)
+                print(f"Sent to ESP32: {[hex(b) for b in framed_data]}")
+
+            except KeyboardInterrupt:
+                print("\nExiting...")
+                break
+
+async def main():
+    global ser
+
+    parser = argparse.ArgumentParser(description='Serial JSON Communication')
+    parser.add_argument('port', type=str, help='Serial port name (e.g., COM1 or /dev/ttyUSB0)')
+    args = parser.parse_args()
+
+    ser = serial.Serial(args.port, baudrate=115200)
+    ser.setRTS(False)
+    ser.setDTR(False)
+
+    await send_user_commands()
+
+if __name__ == "__main__":
+    asyncio.run(main())

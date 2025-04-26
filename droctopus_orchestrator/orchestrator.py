@@ -1,5 +1,9 @@
 import asyncio
 from bleak import BleakClient, BleakScanner
+import serial
+import argparse
+import threading
+import json
 
 # UUIDs
 SERVICE_UUID_1 = "12345678-1234-1234-1234-1234567890ab"
@@ -41,6 +45,28 @@ async def handle_notify(sender, data):
         print(f"Sent to ESP32 #2 (with header): {list(framed_data)}")
 
 async def main():
+
+
+
+    global ser
+    parser = argparse.ArgumentParser(description='Serial JSON Communication')
+    parser.add_argument('port', type=str, help='Serial port name (e.g., COM1 or /dev/ttyUSB0)')
+
+    args = parser.parse_args()
+
+    ser = serial.Serial(args.port, baudrate=115200, dsrdtr=None)
+    ser.setRTS(False)
+    ser.setDTR(False)
+
+    # serial_recv_thread = threading.Thread(target=read_serial)
+    # serial_recv_thread.daemon = True
+    # serial_recv_thread.start()
+
+    initial_command = {"T":102,"base":0,"shoulder":0,"elbow":1.57,"hand":3.14,"spd":0,"acc":10} # TODO: change this to All Angle Control -> {"T":102,"base":0,"shoulder":0,"elbow":1.57,"hand":3.14,"spd":0,"acc":10}
+    ser.write((json.dumps(initial_command) + "\n").encode())
+    # https://www.waveshare.com/wiki/RoArm-M2-S_Robotic_Arm_Control
+
+
     global client1, client2
 
     print("Scanning for devices...")
