@@ -13,6 +13,15 @@
 
 #define DRV_EN 10
 
+
+static constexpr std::array<uint8_t, 10> driver_mux_addr = {4, 5, 6, 7, 1, 0, 0, 1, 2, 3};
+static constexpr std::array<uint8_t, 10> driver_mux_sel = {1, 1, 1, 1, 0, 0, 1, 1, 1, 1};
+
+
+/*
+    LED funcions
+
+*/ 
 int pins[10] = {4, 5, 16, 15, 7, 6, 11, 12, 13, 14};
 bool statLEDS[10];
 void setLEDs(bool ledState[10]) {
@@ -70,6 +79,9 @@ void errorFlash(int x) { //0, 1, 2, 3, 4
   }
 }
 
+
+
+
 void resetUmux() {
   digitalWrite(TCA_UPP_RST, LOW);
   delay(10);
@@ -79,6 +91,18 @@ void resetLmux() {
   digitalWrite(TCA_LOW_RST, LOW);
   delay(10);
   digitalWrite(TCA_LOW_RST, HIGH);
+}
+
+
+void disconnectUmux() {
+  Wire.beginTransmission(TCAADDR_UPPER);
+  Wire.write(0x00);
+  Wire.endTransmission();
+}
+void disconnectLmux() {
+  Wire.beginTransmission(TCAADDR_LOWER);
+  Wire.write(0x00);
+  Wire.endTransmission();
 }
 
 class HapticMotorDriver {
@@ -121,9 +145,9 @@ bool spinMotor(int index, uint8_t intensity) {
     return false;
   }
   if(index == 4 || index == 5) {
-    resetUmux();
+    disconnectUmux();
   } else {
-    resetLmux();
+    disconnectLmux();
   }
   motors[index]->setIntensity(intensity);
   if(intensity > 0) {
@@ -135,24 +159,30 @@ bool spinMotor(int index, uint8_t intensity) {
   return true;
 }
 void setup() {
-  Wire.begin(SDA_PIN, SCL_PIN);
+  Wire.begin(SDA_PIN, SCL_PIN); // setup for I2C
   pinMode(DRV_EN, OUTPUT);
   pinMode(TCA_UPP_RST, OUTPUT);
   pinMode(TCA_LOW_RST, OUTPUT);
-  for(int i = 0; i < 10; i++) {
+  for(int i = 0; i < 10; i++) { // LED config
     pinMode(pins[i], OUTPUT);
     statLEDS[i] = 0;
   }
   delay(100);
-  digitalWrite(DRV_EN, HIGH);
-  resetUmux();
-  resetLmux();
+  digitalWrite(DRV_EN, HIGH); // enabling all drivers 
+  resetUmux(); // resetting TCA9548A
+  resetLmux(); // resetting TCA9548A
 
+
+
+
+  // test function to cycle through all available 
   for(int i = 0; i < 10; i++) {
     uint8_t mux;
     uint8_t channel;
     // uint8_t mux = (i < 8) ? TCAADDR_UPPER : TCAADDR_LOWER;
     //uint8_t channel = (i < 8) ? i : i - 8;
+    // driver_mux_sel = {1, 1, 1, 1, 0, 0, 1, 1, 1, 1};
+    // driver_mux_addr = {4, 5, 6, 7, 1, 0, 0, 1, 2, 3};
     if(i == 4 || i == 5) {
       mux = TCAADDR_LOWER;
       switch(i) {
@@ -192,9 +222,7 @@ void setup() {
           break;
       }
     }
-
     motors[i] = new HapticMotorDriver(mux, channel);
-
     if (!motors[i]->begin()) {
       errorFlash(i); // Visual indication for which one failed
       while (1); // Halt on error
@@ -202,6 +230,8 @@ void setup() {
       //ledSwipe(23);
     }
   }
+
+
 
   spinMotor(1, 128); //spin motor 0 and 128/255 intensity
   delay(1000);
