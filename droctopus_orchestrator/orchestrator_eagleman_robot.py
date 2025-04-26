@@ -4,8 +4,6 @@ import serial
 import argparse
 import json
 
-# /dev/tty.usbserial-120 
-
 # UUIDs
 SERVICE_UUID_2 = "87654321-4321-4321-4321-0987654321ba"
 CHARACTERISTIC_UUID_2 = "fedcbafe-4321-8765-4321-fedcbafedcba"
@@ -27,6 +25,9 @@ prev_base = None
 prev_shoulder = None
 prev_elbow = None
 prev_hand = None
+
+MIN_ANGLE = -3.14
+MAX_ANGLE = 3.14
 
 async def send_robot_commands():
     global base_angle, shoulder_angle, elbow_angle, hand_angle
@@ -58,6 +59,59 @@ async def send_robot_commands():
 
         await asyncio.sleep(0.1)
 
+async def keyboard_control():
+    import sys
+    import termios
+    import tty
+
+    global base_angle, shoulder_angle, elbow_angle, hand_angle
+
+    def getch():
+        fd = sys.stdin.fileno()
+        old_settings = termios.tcgetattr(fd)
+        try:
+            tty.setraw(sys.stdin.fileno())
+            ch = sys.stdin.read(1)
+        finally:
+            termios.tcsetattr(fd, termios.TCSADRAIN, old_settings)
+        return ch
+
+    print("Keyboard control active (W/S: Shoulder, A/D: Base, Q/E: Elbow, T/G: Hand)")
+
+    while True:
+        key = await asyncio.to_thread(getch)
+        step = 0.1  # radians
+
+        if key.lower() == 'w':
+            shoulder_angle = min(shoulder_angle + step, MAX_ANGLE)
+            print(f"Shoulder up: {shoulder_angle:.2f}")
+        elif key.lower() == 's':
+            shoulder_angle = max(shoulder_angle - step, MIN_ANGLE)
+            print(f"Shoulder down: {shoulder_angle:.2f}")
+        elif key.lower() == 'a':
+            base_angle = max(base_angle - step, MIN_ANGLE)
+            print(f"Base rotate left: {base_angle:.2f}")
+        elif key.lower() == 'd':
+            base_angle = min(base_angle + step, MAX_ANGLE)
+            print(f"Base rotate right: {base_angle:.2f}")
+        elif key.lower() == 'q':
+            elbow_angle = min(elbow_angle + step, MAX_ANGLE)
+            print(f"Elbow up: {elbow_angle:.2f}")
+        elif key.lower() == 'e':
+            elbow_angle = max(elbow_angle - step, MIN_ANGLE)
+            print(f"Elbow down: {elbow_angle:.2f}")
+        elif key.lower() == 't':
+            hand_angle = min(hand_angle + step, MAX_ANGLE)
+            print(f"Hand rotate open: {hand_angle:.2f}")
+        elif key.lower() == 'g':
+            hand_angle = max(hand_angle - step, MIN_ANGLE)
+            print(f"Hand rotate close: {hand_angle:.2f}")
+        elif key.lower() == 'x':
+            print("Exiting keyboard control...")
+            break
+
+        await asyncio.sleep(0.05)
+
 async def send_user_commands():
     print("Scanning for ESP32_Receiver...")
 
@@ -82,6 +136,9 @@ async def send_user_commands():
 
         # Start robot serial command loop
         asyncio.create_task(send_robot_commands())
+
+        # Start keyboard control loop
+        asyncio.create_task(keyboard_control())
 
         while True:
             try:
